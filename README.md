@@ -1,2 +1,2 @@
 # belajar
-Belajar CRUD CI
+Pelatihan CRUD CI Di Perpusda Jepara
