@@ -26,8 +26,7 @@ class Dashboard extends CI_Controller {
 			'kategori' => $this->input->post('kategori'),
 			'stok' => $this->input->post('stok'),
 			'harga' => $this->input->post('harga'),
-
-	);
+		);
 
 		$this->db->insert('barang', $data);
 		$this->session->set_flashdata('info', 'Tambah Data Barang Berhasil !');
