@@ -25,6 +25,9 @@ class Dashboard extends CI_Controller
 
 	public function tambah()
 	{
+		if ($this->session->userdata('nama') == null) {
+			redirect('login', 'refresh');
+		}
 		$data = array(
 			'nama_barang' => $this->input->post('nama_barang'),
 			'kategori' => $this->input->post('kategori'),
