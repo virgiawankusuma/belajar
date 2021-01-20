@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Dashboard extends CI_Controller
+{
 
 	function __construct()
 	{
@@ -11,6 +12,9 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		if ($this->session->userdata('nama') == null) {
+			redirect('login', 'refresh');
+		}
 		$data['barang'] = $this->M_barang->getBarang();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
@@ -30,11 +34,10 @@ class Dashboard extends CI_Controller {
 
 		$this->db->insert('barang', $data);
 		$this->session->set_flashdata('info', 'Tambah Data Barang Berhasil !');
-		redirect('dashboard','refresh');
+		redirect('dashboard', 'refresh');
 	}
 
 	public function edit()
 	{
-		
 	}
 }
